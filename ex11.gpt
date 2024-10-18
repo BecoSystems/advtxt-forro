@@ -29,6 +29,48 @@
  * Instrucoes para compilar:
  * $gpt exN.gpt -o exN.gpt.x
  */
+algoritmo batalha_com_lawbrider;
+
+variáveis
+    x : inteiro;
+fim-variáveis
+
+início
+    imprima("Você acorda e percebe que todo o seu time está morto, mas também sobrou um oponente para você encarar, você como um guerreiro conhecido como centurião decide lutar, porém seu oponente não é nada fraco, ele é o Lawbrider, um cavaleiro com 195 cm, pesando mais de 100kg, com uma armadura super resistente e portando um poleaxe uma arma versátil de combate medieval, com cabo de mais de 2m, lâmina afiada, martelo esmagador e uma ponta perfurante. Unindo força e precisão, a sua frente havia duas escolhas de armas para pegar, escolha com sabedoria.\n");
+    imprima("(1) Espada Gladius\n");
+    imprima("(2) Epsilon Axe\n");
+    leia(x);
+
+    se x = 1 então
+        imprima("Gladius por ser uma espada padrão dos soldados romanos, curta e ideal para combates corpo a corpo, eficiente tanto para cortes quanto para estocadas rápidas era perfeita para você que havia treinado sua vida toda com ela.\n");
+    senão
+        se x = 2 então
+            imprima("Você nunca tinha visto uma arma como essa antes, logo não tinha ideia de como usá-la, dando chance para o Lawbrider atacá-lo e arrancar sua cabeça.\n");
+            imprima("Fim do jogo.\n");
+        senão
+            imprima("Essa opção não existe, você fica parado olhando para o chão e tem o corpo perfurado pelo poleaxe do Lawbrider, assim morrendo.\n");
+            imprima("Fim do jogo.\n");
+        fim-se
+    fim-se
+
+    imprima("Você com sua Gladius entra em um combate épico contra o Lawbrider até que ele grita AD MORTEM INIMICUS lançando um ataque cortante extremamente poderoso com o poleaxe na sua direção e você rapidamente pensa em\n");
+    imprima("(3) Esquivar do ataque\n");
+    imprima("(4) Dar um soco nele\n");
+    leia(x);
+
+    se x = 3 então
+        imprima("Você tenta esquivar-se do golpe, porém o golpe varre uma área muito maior do que você imaginou e acaba sendo atingido por ele e é partido ao meio, assim morrendo e deixando sua equipe desapontada.\n");
+        imprima("Fim do jogo.\n");
+    senão
+        se x = 4 então
+            imprima("Você desfere não um soco qualquer e sim um soco capaz de quebrar paredes e antes do golpe atingir Lawbrider você grita INCREDIBILIS derrubando-o no chão deixando uma abertura para você perfurar a barriga dele com sua espada Gladius, assim você faz e o mata, deixando todo seu time orgulhoso por derrotar um oponente tão formidável.\n");
+            imprima("Fim do jogo.\n");
+        senão
+            imprima("Essa opção não existe, você morreu.\n");
+            imprima("Fim do jogo.\n");
+        fim-se
+    fim-se
+fim
 
 /* ---------------------------------------------------------------------- */
 /* rodapé de configuração do vim                                          */
