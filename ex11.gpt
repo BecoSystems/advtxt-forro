@@ -39,7 +39,7 @@ início
     imprima("Você acorda e percebe que todo o seu time está morto, mas também sobrou um oponente para você encarar, você como um guerreiro conhecido como centurião decide lutar, porém seu oponente não é nada fraco, ele é o Lawbrider, um cavaleiro com 195 cm, pesando mais de 100kg, com uma armadura super resistente e portando um poleaxe uma arma versátil de combate medieval, com cabo de mais de 2m, lâmina afiada, martelo esmagador e uma ponta perfurante. Unindo força e precisão, a sua frente havia duas escolhas de armas para pegar, escolha com sabedoria.\n");
     imprima("(1) Espada Gladius\n");
     imprima("(2) Epsilon Axe\n");
-    leia(x);
+    x := leia();
 
     se x = 1 então
         imprima("Gladius por ser uma espada padrão dos soldados romanos, curta e ideal para combates corpo a corpo, eficiente tanto para cortes quanto para estocadas rápidas era perfeita para você que havia treinado sua vida toda com ela.\n");
@@ -56,7 +56,7 @@ início
     imprima("Você com sua Gladius entra em um combate épico contra o Lawbrider até que ele grita AD MORTEM INIMICUS lançando um ataque cortante extremamente poderoso com o poleaxe na sua direção e você rapidamente pensa em\n");
     imprima("(3) Esquivar do ataque\n");
     imprima("(4) Dar um soco nele\n");
-    leia(x);
+    x := leia();
 
     se x = 3 então
         imprima("Você tenta esquivar-se do golpe, porém o golpe varre uma área muito maior do que você imaginou e acaba sendo atingido por ele e é partido ao meio, assim morrendo e deixando sua equipe desapontada.\n");
