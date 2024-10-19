@@ -29,49 +29,86 @@
  * Instrucoes para compilar:
  * $gpt exN.gpt -o exN.gpt.x
  */
-algoritmo batalha_com_lawbrider;
+algoritmo BattleOfForro;
 
 variáveis
-    x : inteiro;
+    opcao, x : inteiro;
 fim-variáveis
 
 início
-    imprima("Você acorda e percebe que todo o seu time está morto, mas também sobrou um oponente para você encarar, você como um guerreiro conhecido como centurião decide lutar, porém seu oponente não é nada fraco, ele é o Lawbrider, um cavaleiro com 195 cm, pesando mais de 100kg, com uma armadura super resistente e portando um poleaxe uma arma versátil de combate medieval, com cabo de mais de 2m, lâmina afiada, martelo esmagador e uma ponta perfurante. Unindo força e precisão, a sua frente havia duas escolhas de armas para pegar, escolha com sabedoria.\n");
-    imprima("(1) Espada Gladius\n");
-    imprima("(2) Epsilon Axe\n");
-    x := leia();
+    exibirMenu();
+fim
 
-    se x = 1 então
-        imprima("Gladius por ser uma espada padrão dos soldados romanos, curta e ideal para combates corpo a corpo, eficiente tanto para cortes quanto para estocadas rápidas era perfeita para você que havia treinado sua vida toda com ela.\n");
-    senão
-        se x = 2 então
-            imprima("Você nunca tinha visto uma arma como essa antes, logo não tinha ideia de como usá-la, dando chance para o Lawbrider atacá-lo e arrancar sua cabeça.\n");
-            imprima("Fim do jogo.\n");
+função exibirMenu()
+início
+    imprima("=====================================\n");
+    imprima("    Bem-vindo ao Battle of Forro!    \n");
+    imprima("=====================================\n");
+    imprima("Pressione 1 para iniciar sua batalha.\n");
+    imprima("Pressione 2 para sair.\n: ");
+    opcao := leia();
+
+    se opcao = 1 então
+        imprima("Você acorda e percebe que todo o seu time está morto, mas também sobrou um oponente para você encarar. Você, como um guerreiro conhecido como centurião, decide lutar, porém seu oponente não é nada fraco. Ele é o Lawbringer, um cavaleiro com 195 cm, pesando mais de 100kg, com uma armadura super resistente e portando um poleaxe, uma arma versátil de combate medieval, com cabo de mais de 2m, lâmina afiada, martelo esmagador e uma ponta perfurante.\n");
+        imprima("Unindo força e precisão, à sua frente há duas escolhas de armas para pegar. Escolha com sabedoria.\n");
+        imprima("(1) Espada Gladius\n");
+        imprima("(2) Epsilon Axe\n: ");
+        x := leia();
+
+        se x = 1 então
+            imprima("Gladius, por ser uma espada padrão dos soldados romanos, curta e ideal para combates corpo a corpo, eficiente tanto para cortes quanto para estocadas rápidas, era perfeita para você que havia treinado sua vida toda com ela.\n");
         senão
-            imprima("Essa opção não existe, você fica parado olhando para o chão e tem o corpo perfurado pelo poleaxe do Lawbrider, assim morrendo.\n");
-            imprima("Fim do jogo.\n");
+            se x = 2 então
+                imprima("Você nunca tinha visto uma arma como essa antes, logo não tinha ideia de como usá-la, dando chance para o Lawbringer atacá-lo e arrancar sua cabeça.\n");
+                retorne;
+            fim-se
         fim-se
-    fim-se
 
-    imprima("Você com sua Gladius entra em um combate épico contra o Lawbrider até que ele grita AD MORTEM INIMICUS lançando um ataque cortante extremamente poderoso com o poleaxe na sua direção e você rapidamente pensa em\n");
-    imprima("(3) Esquivar do ataque\n");
-    imprima("(4) Dar um soco nele\n");
-    x := leia();
+        se x > 2 então
+            imprima("Essa opção não existe. Você fica parado olhando para o chão e tem o corpo perfurado pelo poleaxe do Lawbringer, assim morrendo.\n");
+            retorne;
+        fim-se
 
-    se x = 3 então
-        imprima("Você tenta esquivar-se do golpe, porém o golpe varre uma área muito maior do que você imaginou e acaba sendo atingido por ele e é partido ao meio, assim morrendo e deixando sua equipe desapontada.\n");
-        imprima("Fim do jogo.\n");
-    senão
-        se x = 4 então
-            imprima("Você desfere não um soco qualquer e sim um soco capaz de quebrar paredes e antes do golpe atingir Lawbrider você grita INCREDIBILIS derrubando-o no chão deixando uma abertura para você perfurar a barriga dele com sua espada Gladius, assim você faz e o mata, deixando todo seu time orgulhoso por derrotar um oponente tão formidável.\n");
-            imprima("Fim do jogo.\n");
+        imprima("Você com sua Gladius entra em um combate épico contra o Lawbringer até que ele grita 'AD MORTEM INIMICUS' lançando um ataque cortante extremamente poderoso com o poleaxe na sua direção. Você rapidamente pensa em:\n");
+        imprima("(3) Esquivar do ataque\n");
+        imprima("(4) Dar um soco nele\n: ");
+        x := leia();
+
+        se x = 3 então
+            imprima("Você tenta esquivar-se do golpe, porém o golpe varre uma área muito maior do que você imaginou e acaba sendo atingido por ele, sendo partido ao meio. Você morre, deixando sua equipe desapontada.\n");
+            retorne;
         senão
-            imprima("Essa opção não existe, você morreu.\n");
-            imprima("Fim do jogo.\n");
+            se x = 4 então
+                imprima("Você desfere não um soco qualquer, mas sim um soco capaz de quebrar paredes! Antes do golpe atingir Lawbringer, você grita 'INCREDIBILIS', derrubando-o no chão e deixando uma abertura para perfurar a barriga dele com sua espada Gladius. Assim, você o mata, deixando todo o seu time orgulhoso por derrotar um oponente tão formidável.\n");
+            fim-se
+        fim-se
+
+        se x > 4 então
+            imprima("Essa opção não existe. Você morreu.\n");
+            retorne;
+        fim-se
+
+        imprima("Fim de Jogo. Pressione 3 para sair.\n: ");
+
+        enquanto opcao <> 3 faça
+            opcao := leia();
+            se opcao <> 3 então
+                imprima("Opção inválida. Pressione 3 para sair.\n");
+            fim-se
+        fim-enquanto
+
+        imprima("Saindo do jogo... Até logo guerreiro!\n");
+    senão
+        se opcao = 2 então
+            imprima("Saindo do jogo... Até logo guerreiro!\n");
+        senão
+            se opcao > 2 então
+                imprima("Opção inválida. Tente novamente.\n");
+                exibirMenu();
+            fim-se
         fim-se
     fim-se
 fim
-
 /* ---------------------------------------------------------------------- */
 /* rodapé de configuração do vim                                          */
 /* vi: set ai et ts=4 sw=4 tw=0 wm=0 fo=croql : C config for Vim modeline */
