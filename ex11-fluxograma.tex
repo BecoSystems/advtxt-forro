@@ -129,21 +129,21 @@ Após a escolha da arma, o jogador entra em combate e deve decidir como reagir a
     \node (decisaoMenu) [decision, below of=menu, yshift=-1cm, node distance=1.9cm] {opção 1 ou 2?};
     \node (decisaoObj) [decision, below of=texto1, yshift=-1cm, node distance=1.7cm] {objeto 1 ou 2?};
     \node (decisaoFinal) [decision, below of=texto2, yshift=-1cm, node distance=1.7cm] {ação 1 ou 2?};
-    \node (decisaoSair) [decision, below of=vitoria, yshift=-1cm, node distance=1.1cm] {sair: 3?};
+    \node (decisaoSair) [decision, below of=vitoria, yshift=-1cm, node distance=1.1cm] {sair: 3};
 
     % setas com numeros
     \path [line] (start) -- (menu);
     \path [line] (menu) -- (decisaoMenu);
     \path [line] (decisaoMenu.west) -- ++(-3.2,0) |- (opcaoInvalida.south) node[near start, left] {maior que 2};
-    \path [line] (decisaoMenu.east) -- ++(5,0.01) |- (fimJogo) node[near start, right] {2};
+    \path [line] (decisaoMenu.east) -- ++(6,0.01) |- (fimJogo) node[near start, right] {2};
     \path [line] (opcaoInvalida.east) -- ++(1,0) -- (menu.west);
     \path [line] (decisaoMenu.south) -- (texto1) node[midway, right] {1};
-    \path [line] (decisaoObj.east) -- ++(1.5,0) |- (morte) node[near start, left] {2};
+    \path [line] (decisaoObj.east) -- ++(1.33,0) |- (morte) node[near start, right] {maior ou = 2};
     \path [line] (texto1) -- (decisaoObj);
     \path [line] (decisaoObj.south) -- (texto2) node[midway, right] {1};
-    \path [line] (decisaoFinal.east) -- ++(1.5,0) |- (morte) node[near start, left] {2};
+    \path [line] (decisaoFinal.east) -- ++(1.5,0) |- (morte) node[near start, right] {1 ou maior que 2};
     \path [line] (texto2) -- (decisaoFinal);
-    \path [line] (decisaoFinal.south) -- (vitoria) node[midway, right] {1};
+    \path [line] (decisaoFinal.south) -- (vitoria) node[midway, right] {2};
     \path [line] (vitoria) -- (decisaoSair);
     \path [line] (decisaoSair.south) -- (fimJogo) node[midway, right] {3};
 
