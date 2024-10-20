@@ -85,11 +85,12 @@ void exibirMenu() {
         } while (opcao != 3);
 
         printf("Saindo do jogo... Até logo guerreiro!\n");
+        exit(0);
     }
     if (opcao == 2) {
         printf("Saindo do jogo... Até logo guerreiro!\n");
     }
-    if (opcao > 3) {
+    if (opcao > 2) {
         printf("Opção invalida. Tente novamente.\n");
         exibirMenu();
     }
