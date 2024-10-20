@@ -59,18 +59,18 @@ void exibirMenu() {
         }
 
         printf("Você com sua Gladius entra em um combate épico contra o Lawbringer até que ele grita 'AD MORTEM INIMICUS' lançando um ataque cortante extremamente poderoso com o poleaxe na sua direção. Você rapidamente pensa em:\n");
-        printf("(3) Esquivar do ataque\n");
-        printf("(4) Dar um soco nele\n: ");
+        printf("(1) Esquivar do ataque\n");
+        printf("(2) Dar um soco nele\n: ");
         scanf("%d", &x);
 
-        if (x == 3) {
+        if (x == 1) {
             printf("Você tenta esquivar-se do golpe, porém o golpe varre uma área muito maior do que você imaginou e acaba sendo atingido por ele, sendo partido ao meio. Você morre, deixando sua equipe desapontada.\n");
             exit(0);
         }
-        if (x == 4) {
+        if (x == 2) {
             printf("Você desfere não um soco qualquer, mas sim um soco capaz de quebrar paredes! Antes do golpe atingir Lawbringer, você grita 'INCREDIBILIS', derrubando-o no chão e deixando uma abertura para perfurar a barriga dele com sua espada Gladius. Assim, você o mata, deixando todo o seu time orgulhoso por derrotar um oponente tão formidável.\n");
         }
-        if (x > 4) {
+        if (x > 2) {
             printf("Essa opção não existe. Você morreu.\n");
             exit(0);
         }
