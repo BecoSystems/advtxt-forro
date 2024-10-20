@@ -80,7 +80,7 @@
 
 % descrever em poucas palavras seu projeto aqui
 
-O programa do jogo Battle of Forro mostra primeiro o menu com duas opções, uma de sair e outra de começar, logo apos o jogo começar, voce sempre tera duas opcoes de escolha e no final uma opcao de sair do jogo. Neste artigo iremos apresentar o seu fluxograma completo.
+O programa do jogo Battle of Forro mostra primeiro o menu com duas opções, uma de sair e outra de começar, logo após o jogo começar, você sempre terá duas opções de escolha e no final uma opção de sair do jogo. Neste artigo iremos apresentar o seu fluxograma completo.
 % e (opcionalmente) o seu algoritmo.
 
 Após a modelagem do fluxograma e desenvolvimento da lógica de programação em algoritmo,
@@ -105,13 +105,9 @@ o programa será implementado na Linguagem de Programação \texttt{C}
 
 % Descrever melhor seu projeto aqui
 
-Este programa faz isso, isso e \texttt{também em fonte mono-espaçada faz isso}.
+Este programa é um jogo de texto escrito em C, onde o jogador assume o papel de um centurião enfrentando um poderoso inimigo, o Lawbringer. A função \textbf{exibirMenu()} começa apresentando um menu com duas opções: iniciar a batalha ou sair do jogo. Se o jogador escolhe iniciar a batalha (opção 1), ele é apresentado ao cenário onde seu time foi derrotado e deve enfrentar o Lawbringer, um cavaleiro poderoso com descrições detalhadas de suas habilidades e armamento. O jogador deve escolher entre duas armas: a \texttt{Espada Gladius (opção 1) e a Epsilon Axe (opção 2)}. Se a Gladius for escolhida, o jogador é informado que essa arma é ideal para combates corpo a corpo, permitindo que prossiga para a próxima parte do jogo. Se a Epsilon Axe for escolhida, o jogador não sabe como usá-la e acaba sendo derrotado. Qualquer outra escolha é considerada inválida, levando à morte do jogador.
 
-O programa será modelado em \textit{fluxograma} em uma primeira fase, em seguida
-sua lógica será desenvolvida em formato de \textit{algoritmo}, para então
-na terceira fase ser implementado em Linguagem de Programação \texttt{C}.
-
-Exemplo de letra em \textit{itálico é com textit}, e em \textbf{bold face é com textbf} e \texttt{tal tal tal é mono-espaçada type-writer}.
+Após a escolha da arma, o jogador entra em combate e deve decidir como reagir ao ataque do Lawbringer, que está prestes a desferir um golpe poderoso. \texttt{As opções são esquivar-se do ataque, que resulta na morte do jogador, ou atacar com um soco, o que permite derrotar o Lawbringer}. Se o jogador vence, é parabenizado e o jogo oferece a opção de sair. Um loop permite que o jogador insira sua escolha para sair (opção 3), e entradas inválidas resultam em mensagens de erro. Se o jogador escolher sair, uma mensagem de despedida é exibida. A função \textbf{main()} simplesmente chama \textbf{exibirMenu()}, iniciando o jogo. O uso de \textbf{exit(0)} permite que o programa seja encerrado de forma limpa ao final do jogo ou após uma derrota.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % seção de objetivos %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -120,25 +116,37 @@ Exemplo de letra em \textit{itálico é com textit}, e em \textbf{bold face é c
 % adicionar aqui o fluxograma
 
 \begin{tikzpicture}
-    % colocar nodos
-    \node (inicio) [startend] {Inicio};
-    \node (txta) [print, below of=inicio] {Texto A};
-    \node (inp1) [input, below of=txta] {objeto};
-    \node (tot1) [process, below of=inp1] {total $\leftarrow$ objeto + 1};
-    \node (maior) [decision, below of=tot1] {total $>$ M};
-    \node (sim) [print, right of=maior, node distance=4cm] {Total estourou};
-    \node (nao) [print, below of=maior, node distance=2.4cm] {Total ok};
-    \node (fim) [startend, below of=nao] {Fim};
-    % \node (vazio1) [empty, right of=fim, node distance=4cm] {};
-    % Desenhar as setas
-    \path [line] (inicio) -- (txta);
-    \path [line] (txta) -- (inp1);
-    \path [line] (inp1) -- (tot1);
-    \path [line] (tot1) -- (maior);
-    \path [line] (maior) -- (sim);
-    \path [line] (sim) -- (vazio1) -- (fim);
-    \path [line] (maior) -- (nao);
-    \path [line] (nao) -- (fim);
+
+     % Nodes
+    \node (start) [startend, node distance=0.1cm] {início do jogo};
+    \node (menu) [process, below of=start, node distance=2cm] {menu};
+    \node (opcaoInvalida) [block, left of=menu, xshift=-4cm, node distance=1cm] {opção inválida};
+    \node (texto1) [process, below of=menu, node distance=5.5cm] {texto 1};
+    \node (texto2) [process, below of=texto1, node distance=5.5cm] {texto 2};
+    \node (vitoria) [process, below of=texto2, node distance=5.3cm] {vitória};
+    \node (fimJogo) [process, below of=vitoria, node distance=4.5cm] {fim de jogo};
+    \node (morte) [startend, right of=texto1, xshift=3cm, yshift=-150, node distance=2cm] {morte};
+    \node (decisaoMenu) [decision, below of=menu, yshift=-1cm, node distance=1.9cm] {opção 1 ou 2?};
+    \node (decisaoObj) [decision, below of=texto1, yshift=-1cm, node distance=1.7cm] {objeto 1 ou 2?};
+    \node (decisaoFinal) [decision, below of=texto2, yshift=-1cm, node distance=1.7cm] {ação 1 ou 2?};
+    \node (decisaoSair) [decision, below of=vitoria, yshift=-1cm, node distance=1.1cm] {sair: 3?};
+
+    % setas com numeros
+    \path [line] (start) -- (menu);
+    \path [line] (menu) -- (decisaoMenu);
+    \path [line] (decisaoMenu.west) -- ++(-3.2,0) |- (opcaoInvalida.south) node[near start, left] {maior que 2};
+    \path [line] (decisaoMenu.east) -- ++(5,0.01) |- (fimJogo) node[near start, right] {2};
+    \path [line] (opcaoInvalida.east) -- ++(1,0) -- (menu.west);
+    \path [line] (decisaoMenu.south) -- (texto1) node[midway, right] {1};
+    \path [line] (decisaoObj.east) -- ++(1.5,0) |- (morte) node[near start, left] {2};
+    \path [line] (texto1) -- (decisaoObj);
+    \path [line] (decisaoObj.south) -- (texto2) node[midway, right] {1};
+    \path [line] (decisaoFinal.east) -- ++(1.5,0) |- (morte) node[near start, left] {2};
+    \path [line] (texto2) -- (decisaoFinal);
+    \path [line] (decisaoFinal.south) -- (vitoria) node[midway, right] {1};
+    \path [line] (vitoria) -- (decisaoSair);
+    \path [line] (decisaoSair.south) -- (fimJogo) node[midway, right] {3};
+
 \end{tikzpicture}
 
 
